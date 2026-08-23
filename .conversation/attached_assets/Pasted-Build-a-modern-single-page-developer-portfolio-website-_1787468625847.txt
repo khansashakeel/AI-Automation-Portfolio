@@ -1,0 +1,38 @@
+Build a modern, single-page developer portfolio website for an "AI & Automation Engineer" who is currently completing a Master’s Degree in Data Science.
+
+Design & Visual Aesthetic:
+- Dark Mode Base: Deep slate (#0b0f19) background with vibrant indigo and cyan gradient accents.
+- Modern Glassmorphism: Semi-transparent frosted-glass cards (backdrop-filter: blur) with light border-glows and subtle hover animations for project cards and skill tags.
+- Gen Z Aesthetic: Clean typography, sleek interactive components, smooth scroll animations, and dynamic gradient text.
+
+Page Structure & Sections:
+
+1. Hero Section:
+   - Strong headline: "AI & Automation Engineer | M.S. Data Science Candidate"
+   - Short pitch highlighting expertise in building intelligent automation pipelines, predictive machine learning models, and scalable AI solutions.
+   - Smooth "View Work" and "Contact Me" CTA buttons with glowing hover effects.
+
+2. About & Academic Credentials Section:
+   - Concise bio summarizing background in AI engineering, automation systems, and master's research in Data Science.
+   - Interactive badge layout displaying core technical skills: Python, PyTorch, TensorFlow, Scikit-Learn, FastAPI, Next.js, SQL, Web Scraping, Agentic Workflows, and Cloud Automation.
+
+3. Featured Projects (Glassmorphic Cards with filter tags for "AI / ML", "Automation", and "Data Science"):
+   - Project 1: S&P 500 Predictive Market Analytics Engine (Financial ML, Time-Series Forecasting, Risk Benchmarking)
+   - Project 2: Autonomous LLM Workflow Suite (Multi-Agent Systems, Document AI, Automated Pipelines)
+   - Project 3: Real-Time Computer Vision Pipeline (Object Tracking, Neural Networks, Video Analytics)
+   - Project 4: Interactive Data Science Dashboard (High-Dimensional Data Visualization, Statistical Modeling)
+   - Include placeholder buttons for "Live Demo" and "GitHub Repo" on each card.
+
+4. Services Offered:
+   - AI & Machine Learning Solutions (Custom models, fine-tuning, predictive analytics)
+   - End-to-End Process Automation (LLM agents, API integrations, data scrapers)
+   - Data Science & Statistical Analysis (Data pipelines, dashboards, visual analytics)
+
+5. Contact Section:
+   - Sleek glassmorphic contact form with fields for Name, Email, Subject, and Message.
+   - Interactive submit button with success state visual notification.
+   - Social link placeholders (GitHub, LinkedIn, Email).
+
+Requirements:
+- Make the layout fully responsive for mobile, tablet, and desktop.
+- Ensure all hover states, glassmorphism visual effects, and form interactions run smoothly.
