@@ -1,0 +1,19 @@
+kind = "design-system"
+previewPath = "/human-systems/"
+title = "Human Systems"
+description = "A reusable editorial design system for an AI and Automation Engineer portfolio—warm, clear, and human-centered rather than machine-styled."
+version = "1.0.0"
+id = "artifacts/human-systems"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/human-systems/" ]
+localPort = 22255
+
+[services.development]
+run = "pnpm --filter @workspace/human-systems run dev"
+
+[services.env]
+PORT = "22255"
+BASE_PATH = "/human-systems/"

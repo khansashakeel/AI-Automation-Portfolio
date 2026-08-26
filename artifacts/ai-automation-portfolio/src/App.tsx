@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ArrowDown, ArrowUpRight, Check, Mail, Send } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Check, Mail, Send, Leaf, Menu, X } from 'lucide-react';
+import { Button } from '@workspace/human-systems/components/ui/button';
 import { ErrorBoundary } from '@/components/error-boundary';
-import { Toaster } from '@/components/ui/toaster';
-import { TooltipProvider } from '@/components/ui/tooltip';
+import { Toaster } from '@workspace/human-systems/components/ui/toaster';
+import { TooltipProvider } from '@workspace/human-systems/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 
@@ -93,6 +94,9 @@ function Brand() {
 }
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <header className="site-container topbar" data-testid="header-site">
       <Brand />
@@ -103,6 +107,26 @@ function Header() {
         <a href="#contact" data-testid="link-nav-contact">Contact</a>
       </nav>
       <div className="availability" data-testid="status-availability"><i aria-hidden="true" /> OPEN TO WORK</div>
+      <Button
+        className="mobile-menu"
+        variant="ghost"
+        size="icon"
+        aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+        aria-expanded={menuOpen}
+        aria-controls="mobile-navigation"
+        data-testid="button-mobile-menu"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        {menuOpen ? <X /> : <Menu />}
+      </Button>
+      {menuOpen && (
+        <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">
+          <a href="#about" onClick={closeMenu} data-testid="link-mobile-about">About</a>
+          <a href="#work" onClick={closeMenu} data-testid="link-mobile-work">Selected work</a>
+          <a href="#services" onClick={closeMenu} data-testid="link-mobile-services">Services</a>
+          <a href="#contact" onClick={closeMenu} data-testid="link-mobile-contact">Contact</a>
+        </nav>
+      )}
     </header>
   );
 }
@@ -117,30 +141,21 @@ function Hero() {
           AI &amp; Automation Engineer building dependable, observable systems for teams that need the work to move faster — and hold up under pressure.
         </p>
         <div className="hero-actions reveal delay-3">
-          <a className="button-primary" href="#work" data-testid="link-hero-work">View selected work <ArrowUpRight size={15} /></a>
-          <a className="button-ghost" href="#contact" data-testid="link-hero-contact">Start a conversation <Mail size={14} /></a>
+          <Button asChild size="lg"><a href="#work" data-testid="link-hero-work">View selected work <ArrowUpRight /></a></Button>
+          <Button asChild variant="outline" size="lg"><a href="#contact" data-testid="link-hero-contact">Start a conversation <Mail /></a></Button>
         </div>
         <div className="hero-meta reveal delay-3">
           <div className="meta-item"><span className="meta-value">M.S. Data Science</span><span className="meta-label">In progress · 2025</span></div>
           <div className="meta-item"><span className="meta-value">Remote / Worldwide</span><span className="meta-label">Based in Bengaluru</span></div>
         </div>
       </div>
-      <div className="terminal-wrap reveal delay-2" aria-label="Engineer profile status">
-        <div className="terminal">
-          <div className="terminal-head">
-            <span>~/arun/agent.config</span>
-            <span className="terminal-dots" aria-hidden="true"><i /><i /><i /></span>
-          </div>
-          <div className="terminal-body">
-            <div className="terminal-line"><span className="num">01</span><span className="prompt">&gt;</span><span className="key">const</span>&nbsp; focus = <span className="string">"systems that ship"</span></div>
-            <div className="terminal-line"><span className="num">02</span><span className="prompt">&gt;</span><span className="key">const</span>&nbsp; mode = <span className="value">"deep_work"</span></div>
-            <div className="terminal-line"><span className="num">03</span><span className="prompt">&gt;</span><span className="key">const</span>&nbsp; bias = <span className="string">"make_it_real"</span></div>
-            <div className="terminal-line"><span className="num">04</span><span className="prompt">&gt;</span><span className="key">const</span>&nbsp; status = <span className="value">"available"</span></div>
-            <div className="terminal-bar" aria-label="System readiness 76 percent" />
-            <div className="terminal-line"><span className="num">05</span><span className="prompt">&gt;</span><span className="key">run</span>(<span className="string">"build_the_next_thing"</span>)</div>
-            <div className="terminal-status"><span>● SYSTEMS ONLINE</span><span>v.2.5.0</span></div>
-          </div>
-        </div>
+      <div className="editorial-card reveal delay-2" aria-label="Engineer profile note">
+        <div className="card-kicker"><Leaf size={15} /> FIELD NOTE / 01</div>
+        <div className="card-quote">“The best systems make room for better thinking.”</div>
+        <div className="card-rule" />
+        <div className="card-details"><span>ARUN RAGHAVAN</span><span>BENGALURU · 2025</span></div>
+        <div className="card-stamp">AR<br />01</div>
+        <div className="card-sketch" aria-hidden="true"><span /><span /><span /></div>
       </div>
       <div className="scroll-note">Scroll to inspect <ArrowDown size={13} /></div>
     </section>
@@ -231,16 +246,18 @@ function WorkSection() {
         </div>
         <div className="filters reveal delay-1" role="group" aria-label="Filter projects by category">
           {filters.map((filter) => (
-            <button
-              className={`filter ${activeFilter === filter ? 'active' : ''}`}
+               <Button
+               className={`filter ${activeFilter === filter ? 'active' : ''}`}
+               variant={activeFilter === filter ? 'secondary' : 'outline'}
+               size="sm"
               type="button"
               key={filter}
               onClick={() => setActiveFilter(filter)}
               aria-pressed={activeFilter === filter}
               data-testid={`button-filter-${filter.toLowerCase().replace(/\W+/g, '-')}`}
-            >
+             >
               {filter}
-            </button>
+             </Button>
           ))}
         </div>
         <div className="project-list" data-testid="list-projects">
@@ -298,7 +315,7 @@ function ContactSection() {
                 <div className="success-icon"><Check size={21} /></div>
                 <h3>Message received.</h3>
                 <p>Thanks for reaching out. Your note is in the queue, and I will be in touch soon.</p>
-                <button type="button" onClick={() => setSubmitted(false)} data-testid="button-send-another">Send another message</button>
+                 <Button type="button" variant="link" onClick={() => setSubmitted(false)} data-testid="button-send-another">Send another message</Button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} aria-label="Contact Arun" data-testid="form-contact">
@@ -308,7 +325,7 @@ function ContactSection() {
                 </div>
                 <div className="field"><label htmlFor="company">Company / context</label><input id="company" name="company" placeholder="What are you working on?" data-testid="input-company" /></div>
                 <div className="field"><label htmlFor="message">The hard problem</label><textarea id="message" name="message" required placeholder="Give me the short version..." data-testid="input-message" /></div>
-                <button className="button-primary form-submit" type="submit" data-testid="button-submit-contact">Send message <Send size={14} /></button>
+                 <Button className="form-submit" size="lg" type="submit" data-testid="button-submit-contact">Send message <Send /></Button>
               </form>
             )}
           </div>
