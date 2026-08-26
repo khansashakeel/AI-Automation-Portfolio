@@ -173,7 +173,7 @@ function AboutSection() {
         <div className="about-grid">
           <div className="reveal delay-1">
             <p className="about-lede">I work at the seam between machine learning research and the systems that make it matter.</p>
-            <div className="signature">— Arun Raghavan</div>
+            <div className="signature">— Khansa</div>
           </div>
           <div className="reveal delay-2">
             <p className="about-text">I am completing a Master&apos;s Degree in Data Science while building production-minded AI tools: pipelines that explain themselves, agents that know when to ask, and automation that gives people their attention back.</p>
@@ -349,7 +349,7 @@ function Home() {
         <ContactSection />
       </main>
       <footer className="site-container footer" data-testid="footer-site">
-        <span>© 2025 Arun Raghavan. Built with intent.</span>
+        <span>© 2026 Khansa. All rights reserved.</span>
         <span>AI / AUTOMATION / DATA</span>
       </footer>
     </div>
