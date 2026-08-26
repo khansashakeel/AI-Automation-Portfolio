@@ -7,8 +7,8 @@
 }
 
 .portfolio-shell {
-  min-height: 100dvh;
-  overflow: hidden;
+    min-height: 100dvh;
+    overflow-x: hidden;
   background:
     radial-gradient(circle at 87% 8%, hsl(var(--secondary) / .7), transparent 25rem),
     radial-gradient(circle at 4% 42%, hsl(var(--accent) / .08), transparent 22rem),
