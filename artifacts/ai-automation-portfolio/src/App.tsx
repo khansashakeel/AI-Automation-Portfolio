@@ -87,12 +87,11 @@ function useRevealAnimations() {
 function Brand() {
   return (
     <a className="brand" href="#top" data-testid="link-brand" aria-label="Return to top">
-      <span className="brand-mark"><span>AR</span></span>
-      <span>ARUN R.</span>
+      <span className="brand-mark"><span>{'<>'}</span></span>
+      <span>KHANSA</span>
     </a>
   );
 }
-
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
@@ -151,10 +150,11 @@ function Hero() {
       </div>
       <div className="editorial-card reveal delay-2" aria-label="Engineer profile note">
         <div className="card-kicker"><Leaf size={15} /> FIELD NOTE / 01</div>
+
         <div className="card-quote">“The best systems make room for better thinking.”</div>
         <div className="card-rule" />
-        <div className="card-details"><span>ARUN RAGHAVAN</span><span>BENGALURU · 2025</span></div>
-        <div className="card-stamp">AR<br />01</div>
+        <div className="card-details"><span>KHANSA</span><span>KARACHI · 2026</span></div>
+        <div className="card-stamp">KH<br />01</div>
         <div className="card-sketch" aria-hidden="true"><span /><span /><span /></div>
       </div>
       <div className="scroll-note">Scroll to inspect <ArrowDown size={13} /></div>

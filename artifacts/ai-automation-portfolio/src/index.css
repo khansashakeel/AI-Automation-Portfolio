@@ -28,8 +28,7 @@
 .site-container { width: min(calc(100% - 4rem), 1180px); margin-inline: auto; position: relative; z-index: 1; }
 .topbar { display: flex; align-items: center; justify-content: space-between; min-height: 5.5rem; border-bottom: 1px solid hsl(var(--border)); }
 .brand { display: inline-flex; align-items: center; gap: .75rem; color: hsl(var(--foreground)); text-decoration: none; font-weight: 700; letter-spacing: -.04em; }
-.brand-mark { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border: 1px solid hsl(var(--primary)); color: hsl(var(--primary)); font-family: var(--app-font-serif); font-size: .8rem; transform: rotate(45deg); }
-.brand-mark span { transform: rotate(-45deg); }
+.brand-mark { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border: 1px solid hsl(var(--primary)); border-radius: .4rem; color: hsl(var(--primary)); font-family: var(--app-font-mono); font-size: .9rem; }
 .nav-links { display: flex; align-items: center; gap: 2rem; }
 .nav-links a, .availability, .eyebrow, .meta-label, .service-number, .project-index, .tag, .card-kicker, .card-details, .footer { font-family: var(--app-font-mono); }
 .nav-links a { color: hsl(var(--muted-foreground)); font-size: .7rem; text-decoration: none; transition: color .2s ease; }
